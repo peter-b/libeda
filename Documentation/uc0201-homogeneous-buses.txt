@@ -1,0 +1,20 @@
+=== Homogeneous Buses ===
+
+As an engineer who works with wide address and data buses, I want to
+be able to draw homogeneous buses so that I don't have to draw every
+wire in a bus everywhere that it is used.
+
+An example of where this would be very useful would be connecting up a
+number of identical flash memory chips to an FPGA.  I would like to be
+able to draw a subcircuit schematic containing a single flash chip and
+any associated passives (e.g. pull-up resistors and power decoupling
+caps), and give the subcircuit `ADDRESS[23:0]' and `DATA[31:0]' bus
+ports.  I could then instantiate the circuit as many times as needed,
+and would only need to hook up the buses to each instance, rather than
+having to connect every one of the 56 control lines to each flash chip
+individually.
+
+
+// Local Variables:
+// mode: adoc
+// End:
