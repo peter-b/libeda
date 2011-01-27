@@ -1,0 +1,19 @@
+=== Text file line-endings ===
+
+As an engineer who has to collaborate with colleagues using Windows
+as well as Linux, I often need to exchange design files between
+platforms which use ``\n'' and ``\r\n'' line-endings.
+
+It is sometimes convenient to hand-edit our design files, and it would
+be useful to ensure that the EDA tools can cope with either line ending
+when reading the design file.
+
+Furthermore - if the tools save output using the platform preferred
+line ending, editing is easier using native tools without having the
+burden of converting using the `dos2unix' or `unix2dos' command line
+tools.
+
+
+// Local Variables:
+// mode: adoc
+// End:
