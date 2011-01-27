@@ -1,0 +1,60 @@
+= Template for use cases =
+Peter TB Brett <peter@peter-b.co.uk>
+
+== AsciiDoc Markup ==
+
+This document is written in AsciiDoc.
+
+[quote,Stuart Rackham,AsciiDoc User Guide]
+____________________________________________________________________
+AsciiDoc is a text document format for writing notes, documentation,
+articles, books, ebooks, slideshows, web pages, blogs and UNIX man
+pages.  AsciiDoc files can be translated to many formats including
+HTML, PDF, EPUB, man page.  AsciiDoc is highly configurable: both the
+AsciiDoc source file syntax and the backend output markups (which can
+be almost any type of SGML/XML markup) can be customized and extended
+by the user.
+____________________________________________________________________
+
+For more information on using AsciiDoc, please see
+http://www.methods.co.nz/asciidoc/[the AsciiDoc website].
+
+== General form for a use case ==
+
+In general, a use case should be expressed in the form:
+
+[verse]
+As a $PERSON
+I want $FEATURE
+so that $BENEFIT.
+
+It should usually be possible to express a use case in a short
+sentence.  If you find that difficult, it is often a sign that your
+use case might need to be split into a number of separate use cases.
+
+After the initial statement of the use case, you should then give as
+much detail and as many examples of that use case as you like!  Images
+illustrating what you want to do would be especially useful for
+helping readers understand the use case.
+
+== Adding your new use case into the document ==
+
+To add your newly-written use case into the main use-case document,
+you need to do two things.
+
+1. Name it correctly.  Each use case file should be called
+   +ucXXYY-description.txt+, where +XX+ is the number of the section
+   in the use case document that you want the use case to appear in,
+   and +YY+ is the number of the use case within that section.  If you
+   have extra files associated with your use case (e.g. images), their
+   filenames should all start with the same +ucXXYY-+ prefix.  To find
+   out what values of +XX+ are used, look in +use-cases.sh+.  Feel
+   free to add new sections to the document if there's no appropriate
+   one there yet.
+
+2. Add your use case file (and any extra files) to the +USE_CASES+
+   list in +Makefile.am+.
+
+// Local Variables:
+// mode: adoc
+// End:
