@@ -3,6 +3,7 @@
 
 dnl AsciiDoc documentation support
 dnl Copyright (C) 2011  Peter Brett <peter@peter-b.co.uk>
+dnl Copyright (C) 2011  Peter Clifton <pcjc2@cam.ac.uk>
 dnl
 dnl This library is free software; you can redistribute it and/or
 dnl modify it under the terms of the GNU Lesser General Public
@@ -25,11 +26,13 @@ AC_DEFUN([AX_ASCIIDOC],
   AC_PREREQ([2.60])dnl
   AC_ARG_VAR([ASCIIDOC], [Path to asciidoc executable])
   AC_ARG_VAR([XSLTPROC], [Path to xsltproc executable])
+  AC_ARG_VAR([A2X], [Path to a2x executable])
+  AC_ARG_VAR([DBLATEX], [Path to dblatex executable])
 
   # Check for asciidoc
   AC_CHECK_PROG([ASCIIDOC], [asciidoc], [asciidoc], [no])
   if test "X$ASCIIDOC" = "Xno"; then
-    AC_MSG_ERROR([The asciidoc program is required for documentation generation.])
+    AC_MSG_ERROR([The `asciidoc' program is required for documentation generation.])
   fi
 
   # Check for xsltproc
@@ -38,9 +41,15 @@ AC_DEFUN([AX_ASCIIDOC],
     AC_MSG_ERROR([The `xsltproc' XSLT stylesheet processor is required for documentation generation.])
   fi
 
-  # Check for x2x
+  # Check for a2x
   AC_CHECK_PROG([A2X], [a2x], [a2x], [no])
   if test "X$A2X" = "Xno"; then
-    AC_MSG_ERROR([The `x2x' AsciiDoc toolchain manager is required for documentation generation.])
+    AC_MSG_ERROR([The `a2x' AsciiDoc toolchain manager is required for documentation generation.])
+  fi
+
+  # Check for dblatex
+  AC_CHECK_PROG([DBLATEX], [dblatex], [dblatex], [no])
+  if test "X$DBLATEX" = "Xno"; then
+    AC_MSG_ERROR([The `dblatex' Docbook XML to LaTeX convertor is required for documentation generation.])
   fi
 ])
