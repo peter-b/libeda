@@ -37,4 +37,10 @@ AC_DEFUN([AX_ASCIIDOC],
   if test "X$XSLTPROC" = "Xno"; then
     AC_MSG_ERROR([The `xsltproc' XSLT stylesheet processor is required for documentation generation.])
   fi
+
+  # Check for x2x
+  AC_CHECK_PROG([A2X], [a2x], [a2x], [no])
+  if test "X$A2X" = "Xno"; then
+    AC_MSG_ERROR([The `x2x' AsciiDoc toolchain manager is required for documentation generation.])
+  fi
 ])

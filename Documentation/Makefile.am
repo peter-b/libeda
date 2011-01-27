@@ -3,10 +3,13 @@ XSLT = docbook.xsl
 XSLTOPTS = --xinclude
 
 # Generic rebuilding rules
-SUFFIXES = .xml .txt .html
+SUFFIXES = .xml .txt .html .pdf
 
 .txt.xml:
 	$(ASCIIDOC) -b docbook -d article $<
+
+.txt.pdf:
+	$(A2X) -d article -f pdf $<
 
 .xml.html:
 	$(XSLTPROC) $(XSLTOPTS) -o $@ $(XSLT) $<
@@ -22,7 +25,7 @@ use-cases.txt: $(USE_CASES) use-cases.sh Makefile
 
 # Automake magic
 EXTRA_DIST = $(USE_CASES) use-cases.sh docbook.xsl
-noinst_DATA = use-cases.html
+noinst_DATA = use-cases.html use-cases.pdf
 
-CLEANFILES = use-cases.html use-cases.xml
+CLEANFILES = use-cases.html use-cases.pdf use-cases.xml
 DISTCLEANFILES = use-cases.txt
