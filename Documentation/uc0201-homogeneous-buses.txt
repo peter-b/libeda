@@ -14,6 +14,12 @@ and would only need to hook up the buses to each instance, rather than
 having to connect every one of the 56 control lines to each flash chip
 individually.
 
+.Subcircuit with homogeneous bus ports
+image::uc0201-subcircuit.png["Subcircuit diagram"]
+
+.Main circuit instantiating subcircuits with homogeneous bus ports
+image::uc0201-main.png["Main circuit diagram"]
+
 
 // Local Variables:
 // mode: adoc

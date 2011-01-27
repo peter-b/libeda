@@ -18,6 +18,8 @@ SUFFIXES = .xml .txt .html .pdf
 USE_CASES = \
 	uc0101-basic-hierarchy.txt \
 	uc0201-homogeneous-buses.txt \
+	  uc0201-main.sch uc0201-subcircuit.sch \
+	  uc0201-main.png uc0201-subcircuit.png \
 	uc0202-composite-signal-types.txt \
 	uc0701-line-endings.txt \
 	uc9999-template.txt
