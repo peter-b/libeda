@@ -17,6 +17,7 @@ SUFFIXES = .xml .txt .html .pdf
 # Use case document
 USE_CASES = \
 	uc0101-basic-hierarchy.txt \
+	uc0102-design-reuse.txt \
 	uc0201-homogeneous-buses.txt \
 	  uc0201-main.sch uc0201-subcircuit.sch \
 	  uc0201-main.png uc0201-subcircuit.png \

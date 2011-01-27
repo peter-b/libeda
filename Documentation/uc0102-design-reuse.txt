@@ -1,0 +1,22 @@
+=== Circuit Libraries for Design Re-Use ===
+
+As someone who regularly works on designs which need similar
+functions, I want to be able to build up a library of reusable
+subcircuits so that I can quickly assemble a new design from tried and
+tested functional blocks.
+
+Several examples where this would be useful:
+
+1. USB interface & power supply subcircuit for USB bus-powered
+   devices.  This reusable subcircuit might include a USB type A
+   socket, all of the necessary passives, and an indicator LED.
+
+2. General switching PSU subcircuits (e.g. inverting power supply,
+   mains to 5V power supply).
+
+3. Input buffer and output line driver subcircuits when working on
+   related analogue audio processing module designs.
+
+// Local Variables:
+// mode: adoc
+// End:
