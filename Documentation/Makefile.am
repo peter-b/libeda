@@ -15,6 +15,7 @@ SUFFIXES = .xml .txt .html
 USE_CASES = \
 	uc0101-basic-hierarchy.txt \
 	uc0201-homogeneous-buses.txt \
+	uc0202-composite-signal-types.txt \
 	uc9999-template.txt
 use-cases.txt: $(USE_CASES) use-cases.sh Makefile
 	$(SHELL) use-cases.sh $(USE_CASES) > $@

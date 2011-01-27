@@ -1,0 +1,39 @@
+=== Composite Signal Types  ===
+
+As a VHDL user, I want my schematic viewer to support heterogeneous
+buses, so that I can use with VHDL modules that use ports with custom
+signal types.
+
+An often-recommended style for VHDL design is Jiri Gaisler's `two
+process' style, in which extensive use is made of custom types.
+
+[quote,Jiri Gaisler,Fault-tolerant Microprocessors for Space Applications]
+______________________________________________________________
+Using record types for ports also simplifies hierarchichal design. The
+port map of instantiated components is reduced to a few record
+signals, thereby increasing the readability. Below is an example from
+the LEON2 processor, instantiating the processor pipeline,
+floating-point unit and caches. With the traditional dataflow method,
+there would be many hundreds of signals in the port maps. Using record
+types reduces this to a few signals per component, and significantly
+improves readability.
+
+--------------------
+cpu0 : cpu_sparc port map (rst, clk, ici, ico, dci, dco, fpui, fpuo);
+fpu0 : fpu_core port map (clk, fpui, fpuo);
+cache0 : cache port map (rst, clk, ici, ico, dci, dco, ahbi, ahbo, ahbsi, crami, cramo);
+cmem0 : cachemem port map (clk, crami, cramo);
+--------------------
+______________________________________________________________
+
+If I wanted to draw schematics showing the connections between a VHDL
+modules using a style such as this, it would be necessary to have
+support for ports and nets with custom composite signal types.  If I
+wished to be able to draw schematics which break out elements of a
+composite signal type, or to obtain online DRC for checking that only
+compatible nets and ports were connected, it would be necessary for
+the library to be able to understand and compare custom signal types.
+
+// Local Variables:
+// mode: adoc
+// End:
