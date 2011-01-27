@@ -48,3 +48,5 @@ section 05 "ASIC design" \
     "Use cases for workflows targetting Application-Specific Integrated Circuits."
 section 06 "Simulation" \
     "Use cases for workflows targetting circuit simulation."
+section 07 "Platform portability" \
+    "Use cases for cross-platform capabilities."
