@@ -4,8 +4,9 @@ As a VHDL user, I want my schematic viewer to support heterogeneous
 buses, so that I can use with VHDL modules that use ports with custom
 signal types.
 
-An often-recommended style for VHDL design is Jiri Gaisler's `two
-process' style, in which extensive use is made of custom types.
+An often-recommended style for VHDL design is
+http://www.gaisler.com/doc/vhdl2proc.pdf[Jiri Gaisler's `two process' style],
+in which extensive use is made of custom types.
 
 [quote,Jiri Gaisler,Fault-tolerant Microprocessors for Space Applications]
 ______________________________________________________________
