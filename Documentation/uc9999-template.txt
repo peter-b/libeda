@@ -1,7 +1,6 @@
-= Template for use cases =
-Peter TB Brett <peter@peter-b.co.uk>
+=== Template for use cases ===
 
-== AsciiDoc Markup ==
+==== AsciiDoc Markup ====
 
 This document is written in AsciiDoc.
 
@@ -19,7 +18,7 @@ ____________________________________________________________________
 For more information on using AsciiDoc, please see
 http://www.methods.co.nz/asciidoc/[the AsciiDoc website].
 
-== General form for a use case ==
+==== General form for a use case ====
 
 In general, a use case should be expressed in the form:
 
@@ -37,7 +36,7 @@ much detail and as many examples of that use case as you like!  Images
 illustrating what you want to do would be especially useful for
 helping readers understand the use case.
 
-== Adding your new use case into the document ==
+==== Adding your new use case into the document ====
 
 To add your newly-written use case into the main use-case document,
 you need to do two things.

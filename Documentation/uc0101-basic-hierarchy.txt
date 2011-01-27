@@ -1,0 +1,26 @@
+=== Basic Hierarchy ===
+
+As an engineer who frequently works on designs with identical
+subcircuits, I want support for repeating a subsection within my
+design so that I save time otherwise spent drawing the same circuit
+repeatedly.
+
+An example of a situation I have encountered in which this feature
+would be very useful was a digital signal generator with 64 outputs
+divided into 8 banks of 8 outputs each, with each of the banks having
+a separate programmable power supply.
+
+With basic hierarchy support available, I would draw:
+
+. A schematic for a single line driver.
+. A schematic for a bank of outputs, which contains a power supply and
+  8 instances of the line driver schematic.
+. A top-level schematic, which containts eight instances of the output
+  bank schematic.
+
+This would save an enormous amount of work.
+
+
+// Local Variables:
+// mode: adoc
+// End:

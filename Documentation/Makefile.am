@@ -6,26 +6,21 @@ XSLTOPTS = --xinclude
 SUFFIXES = .xml .txt .html
 
 .txt.xml:
-	$(ASCIIDOC) -b docbook -d book $<
+	$(ASCIIDOC) -b docbook -d article $<
 
 .xml.html:
 	$(XSLTPROC) $(XSLTOPTS) -o $@ $(XSLT) $<
 
 # Use case document
 USE_CASES = \
+	uc0101-basic-hierarchy.txt \
 	uc9999-template.txt
 use-cases.txt: $(USE_CASES) use-cases.sh Makefile
-	@$(SHELL) use-cases.sh $(USE_CASES) > $@.new; \
-	if diff $@ $@.new > /dev/null 2>&1; then \
-	  echo "$@ is unchanged"; \
-	  rm $@.new; \
-	else \
-	  echo "Recreating $@"; \
-	  mv $@.new $@; \
-	fi
+	$(SHELL) use-cases.sh $(USE_CASES) > $@
 
 # Automake magic
 EXTRA_DIST = $(USE_CASES) use-cases.sh docbook.xsl
 noinst_DATA = use-cases.html
 
+CLEANFILES = use-cases.html use-cases.xml
 DISTCLEANFILES = use-cases.txt

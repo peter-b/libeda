@@ -18,9 +18,9 @@ section() {
     echo "$desc"
     echo
 
-    for f in "$SECTION_FILES"; do
+    for f in $SECTION_FILES; do
         if echo $f | grep "^uc$number.*\\.txt$" > /dev/null; then
-            echo "include::$f[leveloffset=2]"
+            echo "include::$f[]"
             echo
         fi
     done
