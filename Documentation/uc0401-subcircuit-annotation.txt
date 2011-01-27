@@ -1,0 +1,25 @@
+=== Annotation in subcircuits ===
+
+As someone who works with assembly houses who demand flat numbering, I
+want my schematic editor to support annotation across hierarchy, so
+that I can use repeated subcircuits in my designs _and_ be able to
+view the actual board numbering in my editor.
+
+Some assembly houses impose unreasonable requirements on component
+numbering, such as "components must be sequentially numbered starting
+from the top right corner of the board."  Currently, the
+gschem->gnetlist->PCB workflow doesn't support this without hacks such
+as a separate hierarchical refdes to flat refdes mapping file applied
+during the netlisting process.
+
+If support for this was built into the schematic editor and underlying
+document model, the annotated version of a circuit could be viewed in
+the schematic editor and the annotations edited, and cross-probing
+from the PCB editor could be made to work nicely.
+
+[NOTE]
+This use-case should include example diagrams.
+
+// Local Variables:
+// mode: adoc
+// End:
