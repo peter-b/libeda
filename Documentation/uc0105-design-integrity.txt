@@ -1,28 +1,59 @@
 === Notion of a Design ===
 
 As someone who regularly works on large designs, I want to the tool
-to treat all design-wide data and configurations as a single entity.
-In particular, the tool accessing the design data should be able to
-efficiently traverse and transform the hierarchy of unit design blocks,
-and connectivity within the whole design.
+to treat all design-wide data and configurations as a single entity even
+if behind the scenes these design data are spread across many files.
+
+The tool should assist me in my work on such designs by helping me to
+configure, assemble and maintain them. I want all tools that access my
+design data to see the same design, i.e. to interpret the design structure
+the same way, to follow the same conventions, and to be bug compatible. ;-)
+
+As a designer, I'd like the tool to assist me in the design work. For example,
+it should check if there are no obvious connectivity errors, or provide means
+to easily track connections across multiple interconnected schematics
+(e.g. by highlighting some nets or searching for all devices connected
+to a net).
+
+These checks should work on design-wide data, not just a single schematic
+page. In fact, I need this capability only when working with large designs.
+
+Design-wide operations should be efficient, i.e. they should work not only
+off-line (e.g. during netlisting) but also during interactive design work.
+
+As someone implementing a netlister for a new netlist format, I would like the
+library to provide me with means of traversing and transformating the design.
+
+. If my netlist format doesn't support hierarchy, or supports it poorly,
+  I want the library to flatten part or whole design connectivity for me.
+. If my netlist format doesn't support expressions in attributes, or supports
+  them poorly, I want the library to evaluate them for me 9even if they use
+  parameters defined at a different level of hierarchy), so that I can use
+  numbers in the netlist.
 
 The design is different from a design unit e.g. a schematic in that
 it may consist of more than just one design unit, either hierarchical
 or not (e.g. a schematic page).
 
-The design is different from a library in that it has a single "main entity",
-a root design unit, and matches the structure of an actual design (hence the name).
+The design is different from a library in that it has a single "root entity",
+is aware of interconnections between the cells, whereas the library is
+essentially a set of design units.
 
-The design should be the definite method of accessing following information:
-1. Hierarchy or set on non-hierarchical design units, ideally the hierarchy should
-   form a directed acyclic graph to enable fast traversal and transformations.
-2. Types of design units
-3. Connectivity across the whole design, ideally this should form a directed
-   acyclic graph to enable fast traversal and transformations.
-4. Configuration of the design, in particular any information related to annotation,
-   overriding attributes, selecting alternative implementations of design units,
-   selecting different design units.
-5. Design specific settings, with a possibility of overriding them by the user.
+The design is different from a "session file" of a front-end tool
+(e.g. a schematic editor) in that it stores data and configurations common
+to all tools accessing the library and that it only stores design related
+information.
+
+The information I would like the design to store is:
+
+1. Hierarchy structure or list on non-hierarchical design units
+   and their types.
+2. Connectivity information across the whole design.
+3. Configuration of the design, in particular any information related
+   to annotation, overriding attribute values, selecting alternative
+   implementations of design units, selecting different design units.
+4. Netlisting or simulation options, so that it is possible to netlist
+   or simulate the design without external configuration or harnesses.
 
 // Local Variables:
 // mode: adoc
