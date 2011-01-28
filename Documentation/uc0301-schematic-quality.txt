@@ -1,0 +1,50 @@
+=== Schematic quality ===
+
+As part of my work I must document the designs I produce. This often
+involves creating technical documentation intended to be placed in the
+hands of the end-user of my products, and it must be of the highest
+quality.
+
+Problems I've had with other tools in the past:
+
+. When I copy images from my EDA tools into my documentation,
+  the image is blocky and poor resolution
+. If I output images big enough for the user to zoom into without seeing
+  pixels, the file size becomes huge
+. The background colours of the tools often don't match the page in the
+  documentation:
+  . This is visually inconsistent for online documentation
+  . Can lead to higher printing costs for printed documentation
+  . Can lead to lower readability when reproduced in black and white.
+
+When I am exporting schematic images for use in docucumentation, it would be
+fantastic if the file sizes were small, and the images could scale to whatever
+zoom level the user wants. I often use Inkscape for vector graphics, but
+unfortunately this doesn't always work well for pasting into some types of
+document.
+
+I typically like to produce PDF files to distribute, but for ease of
+colaboration, I often use Office productivity suites such as Libre Office
+for writing quick documentation when I don't have the energy to fire up LaTeX.
+
+What I would consider to be the mark of a quality schematic:
+
+. Consistent, and carefully applied stroke widths in imagery
+. No overhanging stroke / line cap ends overlapping when geometry changes.
+  This is often present on "ugly" schematics when joining features drawn
+  with different line widths.
+. Filled objects, such as LEDs or transistor arrows should be properly
+  filled with attention paid to their shape and proportion.
+. Text must be rendered legibly
+. Text should be selectable for copying in any finial PDF documetation.
+
+Whilst I sometimes want to print or embed an completly faithful copy of the
+schematic as I see it when designing, when targetting end-users, I wish to
+turn off or remove design-rule checking overlays, such as markers for
+unconnected pin and net ends, as I don't like showing this level of detail
+to my customers.
+
+
+// Local Variables:
+// mode: adoc
+// End:

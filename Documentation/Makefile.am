@@ -23,6 +23,7 @@ USE_CASES = \
 	  uc0201-main.sch uc0201-subcircuit.sch \
 	  uc0201-main.png uc0201-subcircuit.png \
 	uc0202-composite-signal-types.txt \
+	uc0301-schematic-quality.txt \
 	uc0401-subcircuit-annotation.txt \
 	uc0701-line-endings.txt \
 	uc9999-template.txt
