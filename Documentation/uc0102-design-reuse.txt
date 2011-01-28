@@ -5,6 +5,10 @@ functions, I want to be able to build up a library of reusable
 subcircuits so that I can quickly assemble a new design from tried and
 tested functional blocks.
 
+The library should form a local namespace or a hierarchy of local namespaces,
+with possibility of addressing them both in terms of absolute and relative path names.
+This is to encourage design reuse and limit possibility of naming conflicts.
+
 Several examples where this would be useful:
 
 1. USB interface & power supply subcircuit for USB bus-powered
