@@ -1,0 +1,23 @@
+=== Namespaces for Design Re-Use ===
+
+As someone who regularly works on designs which need similar
+functions, I want to be able to reuse circuits or groups of circuits
+so I can quickly assemble new designs from tried and tested functional
+blocks.
+
+To make this task easy, I want these design parts to have as little
+external dependencies or connections as possible, both intended and
+(especially) unintended. Ideally, each functional should reside in its
+own "namespace" and use only relative references (paths) in respect to it,
+so that it can be easily relocated and reused in other designs.
+
+This aspect is especially important for open hardware community as in this
+scenario design reuse from multiple sources is particularly important.
+
+I'd like to think of namespaces as of design libraries - having both these
+mechanisms combined in one reduces the effort needed for using them. This
+technique is used in some programming languages (Java, Python) and HDLs (VHDL).
+
+// Local Variables:
+// mode: adoc
+// End:
