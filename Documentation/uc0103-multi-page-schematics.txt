@@ -1,0 +1,29 @@
+=== Multi-page schematics ===
+
+Often I find myself drawing schematics which all logically belong at
+the same level in a circuit, but will not sensibly fit on one printed
+page.
+
+I need to be able to draw the circuitry on multiple pages, and it would be
+very helpful if the tools provided me a clear way of making electrical
+connections between the pages.
+
+It should be easy for me to navigate between the various pages of the design
+(or design hierarchy block) I am working on, and ideally, when loading my
+project (or schematic), I should be able to open all related pages at the
+same time. I don't like having to explicitly find and open each page in
+order to navigate to them.
+
+As a pragmatic designer, I don't particularly care whether the multipe pages
+of my schematic reside in the same file or not, just so long as they are easy
+to work with.
+
+In some of the other EDA tools I'm used to using, a project contains a list
+of all the relevant source files without me opening each one individually.
+This concept could perhaps be extended so the tool can let me navigate between
+the various pages of my design.
+
+
+// Local Variables:
+// mode: adoc
+// End:
