@@ -1,0 +1,29 @@
+=== Notion of a Design ===
+
+As someone who regularly works on large designs, I want to the tool
+to treat all design-wide data and configurations as a single entity.
+In particular, the tool accessing the design data should be able to
+efficiently traverse and transform the hierarchy of unit design blocks,
+and connectivity within the whole design.
+
+The design is different from a design unit e.g. a schematic in that
+it may consist of more than just one design unit, either hierarchical
+or not (e.g. a schematic page).
+
+The design is different from a library in that it has a single "main entity",
+a root design unit, and matches the structure of an actual design (hence the name).
+
+The design should be the definite method of accessing following information:
+1. Hierarchy or set on non-hierarchical design units, ideally the hierarchy should
+   form a directed acyclic graph to enable fast traversal and transformations.
+2. Types of design units
+3. Connectivity across the whole design, ideally this should form a directed
+   acyclic graph to enable fast traversal and transformations.
+4. Configuration of the design, in particular any information related to annotation,
+   overriding attributes, selecting alternative implementations of design units,
+   selecting different design units.
+5. Design specific settings, with a possibility of overriding them by the user.
+
+// Local Variables:
+// mode: adoc
+// End:
