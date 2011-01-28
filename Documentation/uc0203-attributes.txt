@@ -1,0 +1,112 @@
+=== Attributes  ===
+
+.Basic attributes
+As a circuit designer, I want my schematic editor and netlister to support
+parametrized designs. I want to use it for:
+1. Building reusable components. For example, I may design a generic
+   op-amp which can be later reused in vastly different designs provided
+   that the user changes some of the attributes describing device sizes.
+2. Similarly, I may design a digital circuit processing a data word of
+   an arbitrary length.
+3. Optimizing the design. For example, I may have an opamp which now I'd like
+   to optimize for a given application but rather than going through "modify
+   the schematic, netlist, simulate" loop I'd prefer to use a simulation
+   harness that does the same without modifying the schematic (just changing
+   an attribute value).
+4. Many model libraries require the user to set some parameters.
+   In order to use these libraries my tool must be capable of doing so.
+5. Ideally (although this must be fairly challenging in a general case),
+   I would like to parametrize not only quantities or dimensions but also
+   structure of design cells. Some tools provide means for designing
+   a schematic or layout so that it changes according to user set parameters
+   (visibility of power pins on a symbol, is the transistor layout surrounded
+   by a well tap or not, etc.)
+
+.Attribute expressions
+As a circuit designer, I want to be able to set values of predefined
+parameters not only to constants or global variables but also results
+of some computations.
+
+Simple example (this mechanism could use hardcoded logic rather than relying
+on expressions), instead of setting widths of both transistors forming
+the op-amp's differential pair to be equal to a global variable "diffpair_w",
+I would prefer to set them to be equal to a parameter "diffpair_w"
+(for example using a function: (parentAttribute "diffpair_w")) defined by
+the opamp. This has two benefits:
+* The user sets the attribute only once (rather than twice as if he was
+  assigning a constant value to each of the transistor attributes).
+* The attribute value is stored with the instance of the opamp, rather than
+  in a global variable somewhere at the top level of the design.
+
+In a more complex scenario, I'd like to write more advanced expressions.
+For example, if I know a relation between the resistor size and its
+resistance, I may choose to describe its geometry indirectly by specifying
+a desired resistance value to a schematic wrapping a resistor model.
+The schematic may then take this value and plug it into formula converting
+it into a specific model parameter value.
+
+In this example, given three attributes defined at the wrapper schematic
+level:
+
+ R - target resistance
+ rho_sq = 100 - sheet resistivity
+ w = 1e-6 - width of a resistor
+
+then, inside the wrapper, resistor parameters could be defined as follows:
+
+ rho_sq: (parentAttribute "rho_sq")
+ w:      (parentAttribute "w")
+ l:      (* (parentAttribute "R) (/ (instanceAttribute "w") (instanceAttribute "rho_sq")))
+
+NOTE: The above syntax is used only for presenting the expected behavior,
+      it is not a proposal for an actual implementation.
+      
+Some netlisting backends may have some support for expression evaluation
+themselves. As a user simulating the design using Spice, I would prefer to
+propagate such expressions down to the backend rather than evaluating them
+at the netlist time.
+
+As such conversion may be very difficult in a general case, I'd like to
+have some string operations at my disposal that enable me to rewrite the above
+expression in an alternate form:
+
+ l:      (strJoin (toStr (parentAttribute "R")) " * " (toStr (instanceAttribute "w"))
+             " / " (toStr (parentAttribute "rho_sq")))
+
+As a user that uses multiple simulators and netlisters, I want to be able
+to either:
+* design multiple schematics of such resistor wrapper and have a capability
+  to switch between them, or
+* define multiple parameter definitions and have a capability to switch between
+  them.
+             
+As a user who just downloaded the EDA tool and is searching the web for sample
+designs, I want to be able to test these examples knowing they will not
+comprimise the security of my computer. I want the expression language to be
+limited in capabilities (at least by default) and that the expression
+evaluation takes place in a safe environment (in isolation from the rest
+of the program or system).
+
+.Attribute metadata
+Attributes are used in some specific context. The tool may have to treat them
+differently if in the application they are supposed to be text strings,
+integers or a floating point numbers.
+
+For example, I may describe a bus width as a (/ (parentAttribute "some_attr") 2).
+If for any reason "some_attr" is an odd number (or a floating point number)
+and the division operator doesn't round the result to a nearest integer, the bus
+width may be assigned a floating point value. This is likely to trigger an error
+further down the design process, likely much later or when the library is used
+in the field.
+   
+Similarly, attributes may specify some physical quantities (for example length),
+for which there are multiple units in use.
+
+As a user of an EDA tool, I may prefer to specify (or simply view) some attribute
+values in meters, micrometers, inches, mils etc. This is not only a pure
+convenience feature, using "wrong" units may lead to some rounding errors in
+the design.
+   
+// Local Variables:
+// mode: adoc
+// End:
