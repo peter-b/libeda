@@ -46,14 +46,14 @@ information.
 
 The information I would like the design to store is:
 
-1. Hierarchy structure or list on non-hierarchical design units
-   and their types.
-2. Connectivity information across the whole design.
-3. Configuration of the design, in particular any information related
-   to annotation, overriding attribute values, selecting alternative
-   implementations of design units, selecting different design units.
-4. Netlisting or simulation options, so that it is possible to netlist
-   or simulate the design without external configuration or harnesses.
+. Hierarchy structure or list on non-hierarchical design units
+  and their types.
+. Connectivity information across the whole design.
+. Configuration of the design, in particular any information related
+  to annotation, overriding attribute values, selecting alternative
+  implementations of design units, selecting different design units.
+. Netlisting or simulation options, so that it is possible to netlist
+  or simulate the design without external configuration or harnesses.
 
 // Local Variables:
 // mode: adoc
