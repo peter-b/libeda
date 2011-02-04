@@ -1,0 +1,28 @@
+=== Guarantees of uniqueness ===
+
+As an author of an EDA application based on libeda, I want the library
+to be as robust as possible against some obvious mistakes or API abuse.
+
+One common class of such application (or even user) errors is that
+it may be possible to e.g. create two or more libraries using the same library
+name, two or more instances with the same reference designator etc.
+
+This of course can, and should, be checked against in the application code
+but the backend library itself should be made resistant to this class errors.
+
+[NOTE]
+Below are some implementation notes, which don't strictly belong to this
+document but may be useful as a reference.
+
+This kind of error often arises from building new object using a constructor.
+The constructor, the way it is implemented in most programming
+languages, is called after the actual object has already been allocated.
+Its function is to initialize it, not to create it or to check for errors.
+
+Whenever the object should exhibit singleton characteristics (as described
+in the use case above), a "static" or "class" method should be used for
+building the object.
+
+// Local Variables:
+// mode: adoc
+// End:
