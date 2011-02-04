@@ -30,6 +30,8 @@ USE_CASES = \
 	uc0301-schematic-quality.txt \
 	uc0401-subcircuit-annotation.txt \
 	uc0701-line-endings.txt \
+	uc0801-safety-and-consistency.txt \
+	uc0802-uniqueness-guarantees.txt \
 	uc9999-template.txt
 use-cases.txt: $(USE_CASES) use-cases.sh Makefile
 	$(SHELL) use-cases.sh $(USE_CASES) > $@

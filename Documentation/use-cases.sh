@@ -50,3 +50,5 @@ section 06 "Simulation" \
     "Use cases for workflows targetting circuit simulation."
 section 07 "Platform portability" \
     "Use cases for cross-platform capabilities."
+section 08 "API" \
+    "Use cases for programmers using libeda in their applications."
