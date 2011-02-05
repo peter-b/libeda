@@ -16,7 +16,8 @@ scenario design reuse from multiple sources is particularly important.
 
 I'd like to think of namespaces as of design libraries - having both these
 mechanisms combined in one reduces the effort needed for using them. This
-technique is used in some programming languages (Java, Python) and HDLs (VHDL).
+technique is used in some programming languages (Java, Python) and
+HDLs (VHDL, SystemVerilog).
 
 // Local Variables:
 // mode: adoc

@@ -14,7 +14,7 @@ project (or schematic), I should be able to open all related pages at the
 same time. I don't like having to explicitly find and open each page in
 order to navigate to them.
 
-As a pragmatic designer, I don't particularly care whether the multipe pages
+As a pragmatic designer, I don't particularly care whether the multiple pages
 of my schematic reside in the same file or not, just so long as they are easy
 to work with.
 
