@@ -7,7 +7,7 @@ if behind the scenes these design data are spread across many files.
 The tool should assist me in my work on such designs by helping me to
 configure, assemble and maintain them. I want all tools that access my
 design data to see the same design, i.e. to interpret the design structure
-the same way, to follow the same conventions, and to be bug compatible. ;-)
+the same way, to follow the same conventions, and to be bug-compatible. ;-)
 
 As a designer, I'd like the tool to assist me in the design work. For example,
 it should check if there are no obvious connectivity errors, or provide means
@@ -27,7 +27,7 @@ library to provide me with means of traversing and transformating the design.
 . If my netlist format doesn't support hierarchy, or supports it poorly,
   I want the library to flatten part or whole design connectivity for me.
 . If my netlist format doesn't support expressions in attributes, or supports
-  them poorly, I want the library to evaluate them for me 9even if they use
+  them poorly, I want the library to evaluate them for me (even if they use
   parameters defined at a different level of hierarchy), so that I can use
   numbers in the netlist.
 
