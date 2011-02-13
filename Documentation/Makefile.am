@@ -21,6 +21,7 @@ USE_CASES = \
 	uc0103-multi-page-schematics.txt \
 	uc0105-design-integrity.txt \
 	uc0106-namespaces.txt \
+	uc0107-multiple-implementations.txt \
 	uc0104-design-unit.txt \
 	uc0201-homogeneous-buses.txt \
 	  uc0201-main.sch uc0201-subcircuit.sch \
