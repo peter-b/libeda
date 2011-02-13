@@ -1,6 +1,6 @@
 === Notion of a Design Unit ===
 
-As someone who frequently exchanges parts of designs, I would the tool to
+As someone who frequently exchanges parts of designs, I would like the tool to
 have a notion of a "design unit" (an "entity", a "cell") which encompasses
 both the interface (a symbol) and an implementation (schematic, netlist,
 primitive model, etc.).
