@@ -1,0 +1,21 @@
+﻿=== Design Configuration Mechanism ===
+
+As someone who uses a schematic editor in iterative design flows,
+I would like to be able to reconfigure my design without a tedious
+and error prone modifications of schematics at multiple levels of hierarchy.
+
+Examples of situations where I may need such capability are:
+
+. I simulate a circuit including a large array of identical blocks.
+  To save the simulation time, I want to simulate only one or two
+  of their instances at low level (e.g. a transistor level in the ASIC flow)
+  and rest of them at a behavioral level (e.g. using an HDL description)
+  to provide necessary functionality for the test to work.
+. Switching between any multiple implementations of my design cell I may have.
+  For example, after designing the layout I want to resimulate my circuit
+  with netlists of some of the critical blocks extracted from their respective
+  layout cells.
+. I may want to change some parameters passed to some of the instances buried
+  deep in the design hierarchy.
+. I may want to change contents of some schematics buried deep in the design
+  hierarchy (for example remove an instance or a wire connection).
