@@ -1,0 +1,39 @@
+=== Multiple implementations ===
+
+As someone who uses a schematic editor in multiple flows
+(e.g. simulation, design entry), I would like the tool to be capable
+of handling multiple implementations of each of my design units
+(cells/entities). In addition to that, I would like to be able to switch
+between such alternative implementation on cell by cell
+or instance by instance basis.
+
+Examples of situations where I may need such capability are:
+
+. A schematic for simulation requires some additional instrumentation,
+  which may not exist on the main "design entry" schematic.
+. A design entry schematic may come in several slightly different versions
+  for multiple products, which still fulfill the same contract
+  (i.e. implement a single interface or have a common symbol).
+. In addition to a schematic there might be an alternative netlist
+  implementation. For example a source HDL file, or a spice netlist
+  extracted from a layout.
+
+As an implementor of a tool built on top of the design library, I would
+like the library to be generic enough to store additional design data.
+
+Such data can be:
+
+. The design of a PCB.
+. The layout of an IC design (full custom or digital flow back-end).
+. Interface to simulation results 
+
+Although the above may not necessarily be a goal for implementing the library,
+any design tool relying on a 2D (or "2.5D"), cartesian grid representation
+of data could use the library as a storage medium, contributing to the user
+experience (e.g. cross-tool verification, fully functional copy-paste across
+all the tools) and enabling reuse of a substantial chunk of the tool
+implementation.
+
+// Local Variables:
+// mode: adoc
+// End:

@@ -1,0 +1,25 @@
+﻿=== Integrated Undo Mechanism ===
+
+As a user, I want the library to hold a consistent view of my design
+data at all times. Or, in another words, the picture on the screen should
+be a rendering of the design data hold by the library, not the other way
+around.
+
+As an implementor of a tool built on top of the library, I have a difficulty
+producing such impression, especially when non-trivial bulk operations are
+involved. Also, I want the library to be easy to use. I.e. I want my
+application acts as a controller (changing the database) and as a view (driven
+by the library and presenting the design to the user) with as little paths
+bypassing this mechanism as possible. Therefore, such functionality should be
+implemented direcly in the library as primitive and atomic operations.
+
+A particularly difficult case is an "Undo/Redo" mechanism. I requires a fairly
+deep knowledge of the internal database structure in order to actually revert
+its state (and not just to make the design contents look same). For example,
+although moving a component and deleting it and then recreating it at
+a new position are both equivalent in terms of the contents, they are
+not equivalent in terms of identity (we end up with two diffent component
+instances). Arguably undo mechanism should preserve not only contents but also
+identity, just in case if the tool using the library was still having pointers
+referring to particular instances (this _is_ an aplication error but ideally the
+library should be robust against it).
