@@ -1,6 +1,6 @@
 === Notion of a Design Unit ===
 
-As someone who frequently exchanges parts of designs, I would the tool to
+As someone who frequently exchanges parts of designs, I would like the tool to
 have a notion of a "design unit" (an "entity", a "cell") which encompasses
 both the interface (a symbol) and an implementation (schematic, netlist,
 primitive model, etc.).
@@ -10,10 +10,11 @@ and implementation by treating them as a single unit (conceptually,
 not physically) and checking that there are no mismatches between the two.
 
 Data that are subject to such checks are:
-. a list of ports (including their ordering),
-. definitions of attributes
-. other information not stored in a form of attributes (cell name?)
-. perhaps some cell level configuration.
+
+. A list of ports (including their ordering).
+. Definitions of attributes.
+. Other information not stored in a form of attributes (cell name?).
+. Perhaps some cell level configuration.
 
 // Local Variables:
 // mode: adoc

@@ -1,0 +1,61 @@
+=== Safety and consistency ===
+
+As an author of an EDA application based on libeda, I want the library
+to be as robust as possible in respect to potential design data loss.
+
+My biggest concern is that due to a subtle error in my program, the
+database will be left in an internally inconsistent state, in which even
+if it doesn't physically delete any data it may make corrupt them so that
+they are no longer recoverable.
+
+Also, I want the API to be as self-contained as possible - a function
+that creates a wire connection on a schematic should take care of all the
+housekeeping (updating indices, performing checks if the new connection
+doesn't coincide with existing connections etc.). Each such operation should
+be atomic, both for safety and for convenience.
+
+However, I'm concerned that the above features will make the database
+very slow. For example, previously mentioned wire connection checks
+should be performed after creating each new connection. However,
+if these connections are created in bulk (e.g. at load time or when
+copying large parts of schematics) it will trigger an unnecessarily
+large number of database checks/updates.
+
+[NOTE]
+Below are some implementation notes, which don't strictly belong to this
+document but may be useful as a reference.
+
+To address the safety and consistency requirements, the library should
+default to processing requests one by one. This leads to a major performance
+bottleneck when some costly notifications are triggered many times. This
+can be resolved in at least three ways:
+
+. Letting the programmer play with low level database features (by allowing
+  the programmer to control which hooks and when to execute). This is
+  an inherently unsafe uproach so libeda authors will have to watch for
+  potential bugs and incompatibilities in applications using libeda.
+. Providing a special API for processing requests on vectors of database
+  elements. This solution will work but it creates a split in the API:
+  - a flexible but slow API operating on single database elements,
+  - an inflexible and different API for performance sensitive operations.
+  This makes application design more difficult as there is no automatic
+  transition from the former approach to the latter.
+. Making the database _defer_ the notification until the database views
+  request the data. This itself can be done in three ways:
+  - Run notifications when the application attempts to access data that are not
+    up to date. This is a necessary solution (as the data have to be updated
+    before giving them to the client) but not sufficient as it only works when
+    the application is polling the database, not when it is waiting for the
+    database to notify it about the changes.
+  - Hooks can also be scheduled for running at a nearest "idle" CPU time slot.
+    This can be easily done by plugging into a mainloop of the user
+    application's toolkit. This approach is safe as there is only one thread
+    accessing the database at a time. The drawback is that long operations on
+    the database will freeze all the notifications.
+  - Separate thread for running hooks. Most flexible but may lead to difficult
+    to debug concurrent access errors (does the database become safer when using
+    this approach?).
+
+// Local Variables:
+// mode: adoc
+// End:

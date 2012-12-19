@@ -21,6 +21,8 @@ USE_CASES = \
 	uc0103-multi-page-schematics.txt \
 	uc0105-design-integrity.txt \
 	uc0106-namespaces.txt \
+	uc0107-multiple-implementations.txt \
+	uc0108-design-configuration.txt \
 	uc0104-design-unit.txt \
 	uc0201-homogeneous-buses.txt \
 	  uc0201-main.sch uc0201-subcircuit.sch \
@@ -30,6 +32,9 @@ USE_CASES = \
 	uc0301-schematic-quality.txt \
 	uc0401-subcircuit-annotation.txt \
 	uc0701-line-endings.txt \
+	uc0801-safety-and-consistency.txt \
+	uc0802-uniqueness-guarantees.txt \
+    uc0803-undo-mechanism.txt \
 	uc9999-template.txt
 use-cases.txt: $(USE_CASES) use-cases.sh Makefile
 	$(SHELL) use-cases.sh $(USE_CASES) > $@

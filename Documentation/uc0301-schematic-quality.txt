@@ -13,9 +13,9 @@ Problems I've had with other tools in the past:
   pixels, the file size becomes huge.
 . The background colours of the tools often don't match the page in the
   documentation:
-  . This is visually inconsistent for online documentation.
-  . Can lead to higher printing costs for printed documentation.
-  . Can lead to lower readability when reproduced in black and white.
+  .. This is visually inconsistent for online documentation.
+  .. Can lead to higher printing costs for printed documentation.
+  .. Can lead to lower readability when reproduced in black and white.
 
 When I am exporting schematic images for use in documentation, it would be
 fantastic if the file sizes were small, and the images could scale to whatever
